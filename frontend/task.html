@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>    
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.bootstrap5.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/3.0.2/css/responsive.bootstrap5.css">
+    
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!--NavBar-->
+    <nav>
+        <div class="logo">
+            <span class="logo-name">Task Manager</span>
+            <button type="button" class="btn btn-outline-light" id="log-out">
+                <i class="fas fa-sign-in-alt  menu-icon"></i>
+            </button>
+        </div>
+    </nav>
+    <!--Fin navbar-->
+    <!--seccion de tareas-->
+    <div class="container mt-4">
+        
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <h2>Lista de Tareas</h2>
+                    <div class="buttom mb-4 mt-4">
+                        <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#ModalTask">
+                            <i class="fas fa-plus-circle"></i>
+                            Agregar tarea
+                          </button>
+                    </div>
+                    <table id="tbl-task" class="display mt-4 table-task" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th class="text-center">Título</th>
+                                <th class="text-center">Descripción</th>
+                                <th class="text-center">Estado</th>
+                                <th class="text-center">Fecha de Creación</th>
+                                <th class="text-center">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Aquí se llenarán las filas dinámicamente -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Final de seccion tareas-->
+
+        <!--MODAL TASK-->
+  <!-- Modal -->
+  <div class="modal fade" id="ModalTask" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel"><span id="tituloFormulario">Nueva</span> Tarea</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form id="frm-task">
+                 <div class="row">
+                    <div class="col-md-4 ">
+                        <input type="text" class="form-control" id="idTask" name="idTask" style="display: none;">
+                        <div class="form-group">
+                            <label for="Titulo">Titulo</label>
+                            <input type="text" class="form-control" id="Titulo" name="Titulo" placeholder="Ingrese un titulo">
+                        </div>
+                    </div>
+                    <div class="col-md-4 ">
+                        <div class="form-group">
+                            <label for="Estado">Estado</label>
+                            <select class="form-control" id="Estado" name="Estado">
+                                <option value="">Seleccione un estado</option>
+                                <option value="0">Pendiente</option>
+                                <option value="1">Completado</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="fcha-creacion">Fecha creación</label>
+                            <input type="date" class="form-control" id="fcha-creacion"
+                                name="fchTask">
+                        </div>
+                    </div>
+                    <div class="col-md-12 mt-4">
+                        <div class="form-group">
+                            <label for="Descripcion">Descripción</label>
+                            <textarea class="form-control" name="Descripcion" id="Descripcion"placeholder="Ingrese la descripción"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-outline-success mt-3" id="create-task">
+                    <i class="far fa-save"></i> Guardar tarea</button> <!--Boton crear tarea -->
+            </form>
+        </div>
+        <div class="modal-footer" style="display:none;">
+          <button type="button" class="btn btn-outline-primary" id="update-task">
+            <i class="far fa-save"></i>
+            Guardar cambios   <!--Boton guardar cambios al actualizar-->
+        </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/2.0.8/js/dataTables.js"></script>
+    <script src="https://cdn.datatables.net/2.0.8/js/dataTables.bootstrap5.js"></script>
+    <script src="https://cdn.datatables.net/responsive/3.0.2/js/dataTables.responsive.js"></script>
+    <script src="https://cdn.datatables.net/responsive/3.0.2/js/responsive.bootstrap5.js"></script>
+    <script src="js/task.js"></script>
+</body>
+</html>
